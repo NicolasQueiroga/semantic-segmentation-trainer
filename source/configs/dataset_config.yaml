@@ -1,0 +1,7 @@
+dataset:
+  format: "coco"
+  image_size: [ 512, 512 ]
+  class_ids: [ 1, 2 ]
+  train_dir: "/home/nqueiroga/Documents/train-semantic-segmantator/source1/model/data/train"
+  val_dir: "/home/nqueiroga/Documents/train-semantic-segmantator/source1/model/data/valid"
+  test_dir: "/home/nqueiroga/Documents/train-semantic-segmantator/source1/model/data/valid"
