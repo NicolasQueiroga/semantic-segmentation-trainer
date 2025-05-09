@@ -8,6 +8,7 @@ from .utils import calculate_dataset_statistics, validate_dataset_config
 
 data_logger = setup_logger("data.dataset_factory", "data.log", topic="DATA")
 
+
 def create_datasets(config_path: str) -> dict[str, COCODataset]:
     data_logger.info(f"Loading dataset configuration from {config_path}")
     with open(config_path, "r") as file:

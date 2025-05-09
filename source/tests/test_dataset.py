@@ -8,6 +8,7 @@ from source.configs.logger import setup_logger
 
 test_logger = setup_logger("tests.test_dataset", "test.log", topic="TEST")
 
+
 class TestDataset(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
