@@ -8,7 +8,6 @@ def setup_logger(name: str, log_file: str = "app.log", level: int = logging.INFO
     file_handler = logging.FileHandler(log_file)
     console_handler = logging.StreamHandler()
 
-    # Define a colorful formatter for console output
     color_formatter = ColoredFormatter(
         f"%(log_color)s%(asctime)s - {topic} - %(name)s - %(levelname)s - %(message)s",
         log_colors={
@@ -20,7 +19,6 @@ def setup_logger(name: str, log_file: str = "app.log", level: int = logging.INFO
         },
     )
 
-    # Define a plain formatter for file output
     plain_formatter = logging.Formatter(
         f"%(asctime)s - {topic} - %(name)s - %(levelname)s - %(message)s"
     )
