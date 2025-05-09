@@ -1,11 +1,20 @@
+import os
 import logging
 from colorlog import ColoredFormatter
 
-def setup_logger(name: str, log_file: str = "app.log", level: int = logging.INFO, topic: str = "") -> logging.Logger:
+
+def setup_logger(
+    name: str, log_file: str = "app.log", level: int = logging.INFO, topic: str = ""
+) -> logging.Logger:
+    logs_folder = os.path.join(os.path.dirname(__file__), "../logs")
+    os.makedirs(logs_folder, exist_ok=True)
+
+    log_file_path = os.path.join(logs_folder, log_file)
+
     logger = logging.getLogger(name)
     logger.setLevel(level)
 
-    file_handler = logging.FileHandler(log_file)
+    file_handler = logging.FileHandler(log_file_path)
     console_handler = logging.StreamHandler()
 
     color_formatter = ColoredFormatter(
@@ -30,5 +39,6 @@ def setup_logger(name: str, log_file: str = "app.log", level: int = logging.INFO
     logger.addHandler(console_handler)
 
     return logger
+
 
 main_logger = setup_logger("semantic-segmentation-trainer", "trainer.log", topic="MAIN")
